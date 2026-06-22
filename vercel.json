@@ -10,7 +10,7 @@
       "routePrefix": "_/backend",
       "entrypoint": "app.py",
       "framework": "python",
-      "runtime": "python3.10"
+      "runtime": "python3.9"
     }
   }
 }
