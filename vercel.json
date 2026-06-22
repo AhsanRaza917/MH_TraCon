@@ -9,8 +9,7 @@
       "root": "backend",
       "routePrefix": "_/backend",
       "entrypoint": "app.py",
-      "framework": "python",
-      "runtime": "python3.9"
+      "framework": "python"
     }
   }
 }
