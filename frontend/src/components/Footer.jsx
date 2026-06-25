@@ -19,17 +19,6 @@ export default function Footer() {
           </div>
 
           <div className="footer__section">
-            <h3 className="footer__heading">{t.footer.quickLinks}</h3>
-            <div className="footer__links">
-              <Link to="/">{t.nav.home}</Link>
-              <Link to="/about">{t.nav.about}</Link>
-              <Link to="/services">{t.nav.services}</Link>
-              <Link to="/projects">{t.nav.projects}</Link>
-              <Link to="/contact">{t.nav.contact}</Link>
-            </div>
-          </div>
-
-          <div className="footer__section">
             <h3 className="footer__heading">{t.footer.contactInfo}</h3>
             <div className="footer__contact-list">
               <a href={`tel:${t.contact.phone1.replace(/\s/g, '')}`} className="footer__contact-item">

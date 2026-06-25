@@ -165,7 +165,11 @@ export default function ContactPage() {
 
                 {status === 'success' && (
                   <div className="form-message form-message--success" id="form-success">
-                    ✅ {t.contact.successMessage}
+                    <svg className="tick-icon" viewBox="0 0 52 52">
+                      <circle className="tick-icon__circle" cx="26" cy="26" r="25" />
+                      <path className="tick-icon__check" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                    </svg>
+                    {t.contact.successMessage}
                   </div>
                 )}
                 {status === 'error' && (
