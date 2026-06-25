@@ -452,15 +452,25 @@ input, textarea, select { font: inherit; color: inherit; }
     pointer-events: all;
   }
 
+  /* RTL: same open state — needed because [dir="rtl"] .navbar__links
+     has higher specificity (0-1-1) than .navbar__links--open (0-1-0) */
+  [dir="rtl"] .navbar__links--open {
+    transform: translateX(0);
+  }
+
   /* Navbar itself should NOT expand to full height when open */
   .navbar--open {
     height: auto;
   }
 
   .navbar--open.navbar--scrolled {
-    background: var(--bg-overlay);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    /* Use a solid background instead of backdrop-filter.
+       backdrop-filter creates a new containing block which breaks
+       position:fixed on the drawer — causing it to be clipped
+       to the navbar height instead of spanning the full viewport. */
+    background: var(--bg-primary);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-bottom-color: var(--border);
     box-shadow: var(--shadow-sm);
   }
