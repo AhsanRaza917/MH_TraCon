@@ -33,7 +33,7 @@ export default function ContactPage() {
       if (result.success) {
         setStatus('success');
         setFormData({ name: '', email: '', phone: '', company: '', message: '' });
-        setTimeout(() => setStatus(null), 5000);
+        setTimeout(() => setStatus(null), 2500);
       } else {
         setStatus('error');
         setTimeout(() => setStatus(null), 5000);
@@ -47,6 +47,18 @@ export default function ContactPage() {
 
   return (
     <div className="page-transition">
+      {/* Centered success overlay */}
+      {status === 'success' && (
+        <div className="success-overlay" id="success-overlay">
+          <div className="success-overlay__content">
+            <svg className="tick-icon tick-icon--large" viewBox="0 0 52 52">
+              <circle className="tick-icon__circle" cx="26" cy="26" r="25" />
+              <path className="tick-icon__check" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>
+            <p className="success-overlay__text">{t.contact.successMessage}</p>
+          </div>
+        </div>
+      )}
       {/* Page Hero */}
       <section className="page-hero" id="contact-hero">
         <div className="container">
@@ -163,15 +175,7 @@ export default function ContactPage() {
                   </button>
                 </ScrollReveal>
 
-                {status === 'success' && (
-                  <div className="form-message form-message--success" id="form-success">
-                    <svg className="tick-icon" viewBox="0 0 52 52">
-                      <circle className="tick-icon__circle" cx="26" cy="26" r="25" />
-                      <path className="tick-icon__check" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-                    </svg>
-                    {t.contact.successMessage}
-                  </div>
-                )}
+
                 {status === 'error' && (
                   <div className="form-message form-message--error" id="form-error">
                     ❌ {t.contact.errorMessage}
