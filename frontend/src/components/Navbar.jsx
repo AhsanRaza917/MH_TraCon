@@ -55,6 +55,15 @@ export default function Navbar() {
           <span className="navbar__logo-text">TraCon</span>
         </Link>
 
+        {/* Backdrop overlay — click to close the drawer */}
+        {menuOpen && (
+          <div
+            className="navbar__backdrop"
+            onClick={() => setMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+
         <div className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
           {navLinks.map(link => (
             <Link
